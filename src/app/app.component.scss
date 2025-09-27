@@ -1,0 +1,17 @@
+.nav {
+  border-bottom: 1px solid #eee;
+
+  a {
+    margin-right: 12px;
+    text-decoration: none;
+    color: #333;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .active-link {
+    font-weight: bold;
+    color: #007bff;
+  }
+}
