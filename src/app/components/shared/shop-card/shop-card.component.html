@@ -1,0 +1,21 @@
+<div class="bg-white p-4 rounded-lg shadow flex flex-row gap-6">
+    <div class="w-[20%]">
+        <div class="w-[250px] h-[250px] p-5 bg-tertiary rounded-lg">
+            <img [src]="product.image" [alt]="product.title" class="h-full w-full object-contain" >
+        </div>
+    </div>
+    <div class="w-[80%] py-5 flex-col flex gap-4 justify-between">
+        <div class="flex flex-col gap-2">
+            <span class="text-gray-600">In Stock</span>
+            <h4 class="text-lg font-semibold text-primary">{{ product.title }}</h4>
+            <span class="font-bold text-secondary">{{ product.price | currency }}</span>
+            <p class="text-gray-600">{{ product.description }}</p>
+        </div>
+        
+        <div class="flex flex-row gap-4">
+            <button class="secondary-btn">Add to Cart</button>
+            <a [routerLink]="'/shop/' + product.id" class="secondary-outlined-btn">View Details</a>
+        </div>
+    </div>
+</div>
+

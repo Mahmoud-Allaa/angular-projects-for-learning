@@ -1,22 +1,9 @@
-<div class="bg-[#f8f8f8]">
-  <nav class="container mx-auto nav flex justify-between items-center py-3 border-b border-gray-200">
+<div class="min-h-screen flex flex-col justify-between">
     <div>
-      <a routerLink="/home" routerLinkActive="active-link">Home</a>
-      <a routerLink="/recipes" routerLinkActive="active-link">Recipes</a>
+        <app-navbar></app-navbar>
+        <router-outlet />
     </div>
-
-    @if (!isAuthenticated()) {
-      <div>
-        <a routerLink="/login" routerLinkActive="active-link">Login</a>
-        <a routerLink="/register" routerLinkActive="active-link">Register</a>
-      </div>
-    } @else {
-      <div>
-        <button (click)="logout()" class="text-red-500">Logout</button>
-      </div>
-    }
-  </nav>
-  
+    
+    <app-footer></app-footer>
 </div>
-<router-outlet />
   

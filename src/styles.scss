@@ -3,9 +3,62 @@
 @tailwind components;
 @tailwind utilities;
 
+$primary-color: #151875;
+$secondary-color: #FB2E86;
+$tertiary-color: #F6F5FF;
 
 body {
   margin: 0;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+button ,.primary-btn, .secondary-btn, .primary-outlined-btn, .secondary-outlined-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+button:hover,.primary-btn:hover, .secondary-btn:hover {
+  opacity: 0.8;
+}
+.primary-btn {
+  background-color: $primary-color;
+  color: white;
+}
+.secondary-btn {
+  background-color: $secondary-color;
+  color: white;
+}
+
+.primary-outlined-btn {
+  background-color: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+}
+.secondary-outlined-btn {
+  background-color: transparent;
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+}
+
+h1 {
+  color: $primary-color;
+  font-size: 53px;
+  font-weight: bold;
+}
+
+h2 {
+  color: $primary-color;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+h3 {
+  color: $primary-color;
+  font-size: 24px;
+  font-weight: bold;
+}

@@ -1,16 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { HomeComponent } from './components/home/home.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'recipes', component: RecipeListComponent },
-    { path: 'recipes/new', component: NewRecipeComponent },
+    { path: '', component: HomeComponent },
+    { path: 'shop', component: ShopComponent },
+    { path: 'shop/:id', component: ProductDetailsComponent },
+    { path: 'cart', component: CartComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: '**', redirectTo: '/home' }
+    
+    { path: '**', redirectTo: '' }
 ];

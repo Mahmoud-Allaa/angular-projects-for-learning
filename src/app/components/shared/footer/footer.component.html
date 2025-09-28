@@ -1,0 +1,49 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+      <div class="brand">
+        <h2>E-Store</h2>
+      </div>
+      <div class="newsletter">
+      </div>
+      <div class="contact-info">
+        <p>Contact Info</p>
+        <p class="address">{{ contactInfo.address }}</p>
+      </div>
+    </div>
+
+    <!-- Footer Links Sections -->
+    <div class="footer-links">
+      <div class="footer-section" *ngFor="let section of footerSections">
+        <h3>{{ section.title }}</h3>
+        <ul>
+          <li *ngFor="let link of section.links">
+            <a [href]="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <div class="copyright">
+        <p>&copy;Webecy - All Rights Reserved</p>
+      </div>
+      <div class="social-links">
+        <a 
+          *ngFor="let social of socialLinks" 
+          [href]="social.url" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          [attr.aria-label]="social.name"
+          class="social-link"
+        >
+          <i [class]="social.icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

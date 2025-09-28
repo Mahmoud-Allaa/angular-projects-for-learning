@@ -1,17 +1,12 @@
-.nav {
-  border-bottom: 1px solid #eee;
+$primary-color: #151875;
+$secondary-color: #FB2E86;
+$tertiary-color: #F6F5FF;
 
-  a {
-    margin-right: 12px;
-    text-decoration: none;
-    color: #333;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .active-link {
-    font-weight: bold;
-    color: #007bff;
-  }
+
+
+.secondary-btn {
+  background-color: $secondary-color;
+  padding: 10px 20px;
+  color: white;
 }

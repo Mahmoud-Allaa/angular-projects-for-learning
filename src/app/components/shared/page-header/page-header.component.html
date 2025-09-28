@@ -1,0 +1,23 @@
+<div class="bg-tertiary p-20 rounded-lg shadow-sm">
+  <div class="max-w-7xl mx-auto">
+    <!-- Title -->
+    <h2 class="text-primary mb-2">{{ title }}</h2>
+
+    <!-- Breadcrumbs -->
+    <nav class="text-sm text-gray-600">
+        <ul class="flex flex-row items-center gap-2">
+        <li *ngFor="let crumb of breadcrumbs; let last = last">
+            <ng-container *ngIf="!last">
+                <div class="flex flex-row items-center gap-2">
+                    <a [routerLink]="crumb.url" class="hover:text-secondary">{{ crumb.label }}</a>
+                    <span class="w-1 h-1 rounded-full bg-primary"></span>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="last">
+            <span class="text-secondary">{{ crumb.label }}</span>
+            </ng-container>
+        </li>
+        </ul>
+    </nav>
+  </div>
+</div>

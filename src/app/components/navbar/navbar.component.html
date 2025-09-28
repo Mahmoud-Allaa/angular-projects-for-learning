@@ -1,0 +1,17 @@
+<div class="bg-white h-[80px]">
+  <nav class="container mx-auto nav flex justify-between items-center h-full">
+    <div class="flex flex-row gap-20 items-center">
+      <a class="text-3xl font-bold text-primary" routerLink="/" >E-Store</a>
+      <ul class="flex flex-row gap-6">
+        <li><a routerLink="/" routerLinkActive="text-secondary" [routerLinkActiveOptions]="{ exact: true }" >Home</a></li>
+        <li><a routerLink="/shop" routerLinkActive="text-secondary" >Shop</a></li>
+        <li><a routerLink="/cart" routerLinkActive="text-secondary" >Cart</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-row gap-4">
+      <a routerLink="/login" class="secondary-btn" >Login</a>
+      <a routerLink="/register" class="secondary-btn" >Register</a>
+    </div>
+  </nav>
+  
+</div>
