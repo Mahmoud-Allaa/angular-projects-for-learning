@@ -3,13 +3,13 @@
 </app-page-header>
 
 <!-- Filtering -->
-<div class="my-10 max-w-7xl mx-auto">
+<div class="my-10 container mx-auto">
     <h3 class="">Ecommerce Accessories & Fashion items</h3>
     <p class="text-gray-400">About {{ products?.length}} result</p>
 </div>
 
 <!-- Products -->
 
-<div class="max-w-7xl mx-auto flex flex-col gap-6 mb-20">
+<div class="container mx-auto flex flex-col gap-6 mb-20">
     <app-shop-card *ngFor="let item of products" [product]="item"></app-shop-card>
 </div>

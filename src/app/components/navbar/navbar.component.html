@@ -6,12 +6,18 @@
         <li><a routerLink="/" routerLinkActive="text-secondary" [routerLinkActiveOptions]="{ exact: true }" >Home</a></li>
         <li><a routerLink="/shop" routerLinkActive="text-secondary" >Shop</a></li>
         <li><a routerLink="/cart" routerLinkActive="text-secondary" >Cart</a></li>
+        <li *ngIf="authService.isLoggedIn()"><a routerLink="/dashboard" routerLinkActive="text-secondary" >Dashboard</a></li>
       </ul>
     </div>
-    <div class="flex flex-row gap-4">
-      <a routerLink="/login" class="secondary-btn" >Login</a>
-      <a routerLink="/register" class="secondary-btn" >Register</a>
-    </div>
+    <ng-container *ngIf="authService.isLoggedIn()">
+      <button (click)="authService.logout()" class="secondary-btn" >Logout</button>
+    </ng-container>
+    <ng-container *ngIf="!authService.isLoggedIn()">
+      <div class="flex flex-row gap-4">
+        <a routerLink="/login" class="secondary-btn" >Login</a>
+        <a routerLink="/register" class="secondary-btn" >Register</a>
+      </div>
+    </ng-container>
   </nav>
   
 </div>

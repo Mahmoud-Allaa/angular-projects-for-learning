@@ -1,6 +1,6 @@
 <!-- Hero Section -->
 <div class="bg-tertiary flex items-center">
-    <div class="max-w-7xl mx-auto flex gap-10 flex-row items-center justify-between py-10">
+    <div class="container mx-auto flex gap-10 flex-row items-center justify-between py-10">
         <div class="flex-1">
             <span class="text-secondary">Best Furniture For Your Castle....</span>
             <h1 class="text-primary">New Furniture Collection Trends in 2025</h1>
@@ -15,20 +15,17 @@
 <!-- Hero Section -->
 
 <!-- Featured Products Section -->
-<div class="max-w-7xl mx-auto py-[100px]">
+<div class="container mx-auto py-[100px]">
     <h2 class="text-primary text-center">Featured Products</h2>
     <div class="grid grid-cols-4 gap-4 mt-10">
-        <app-product-card-1></app-product-card-1>
-        <app-product-card-1></app-product-card-1>
-        <app-product-card-1></app-product-card-1>
-        <app-product-card-1></app-product-card-1>
+        <app-product-card-1 *ngFor="let item of fProducts" [product]="item"></app-product-card-1>
     </div>
 </div>
 
 
 
 <!-- Leatest Products Section -->
-<div class="max-w-7xl mx-auto py-[100px]">
+<div class="container mx-auto py-[100px]">
     <div class="mb-[50px] text-center flex flex-col items-center">
         <h2 class="text-primary text-2xl font-bold mb-4 mb-10">Leatest Products</h2>
         <div class="flex gap-6 text-sm">
@@ -38,18 +35,13 @@
         </div>
     </div>
     <div class="grid grid-cols-3 gap-4 mt-10">
-        <app-product-card-2></app-product-card-2>
-        <app-product-card-2></app-product-card-2>
-        <app-product-card-2></app-product-card-2>
-        <app-product-card-2></app-product-card-2>
-        <app-product-card-2></app-product-card-2>
-        <app-product-card-2></app-product-card-2>
+        <app-product-card-2 *ngFor="let item of lProducts" [product]="item"></app-product-card-2>
     </div>
 </div>
 
 <!-- Unique Section -->
  <div class="bg-tertiary flex items-center">
-    <div class="max-w-7xl mx-auto gap-10 flex flex-row items-center justify-between py-10">
+    <div class="container mx-auto gap-10 flex flex-row items-center justify-between py-10">
         <div>
             <img src="/home/hero-img.png" alt="Hero Image">
         </div>
@@ -76,7 +68,7 @@
 </div>
 
 <!-- Discount Section -->
-<div class="max-w-7xl mx-auto py-[100px]">
+<div class="container mx-auto py-[100px]">
     <div class="mb-[100px] text-center flex flex-col items-center">
         <h2 class="text-primary text-2xl font-bold mb-4 mb-10">Discount Item</h2>
         <div class="flex gap-6 text-sm">

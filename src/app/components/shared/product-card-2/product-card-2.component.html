@@ -1,26 +1,26 @@
 <div class="group w-[360px] bg-white shadow-md rounded-lg overflow-hidden mx-auto">
     <div class="relative bg-tertiary-light p-4 flex justify-center group-hover:bg-white transition-colors duration-300">
-        <img src="/products/prod1.png" alt="Chair Image" >
+        <img [src]="product.image" alt="{{ product.title }}" class="h-[200px] object-contain">
         <!-- actions -->
         <div class="absolute flex flex-col gap-1 top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button class="hover:bg-tertiary text-primary p-2 rounded-full hover:bg-opacity-80 transition-colors" title="Add to Cart">
+            <button (click)="addToCart()" class="hover:bg-tertiary text-primary p-2 rounded-full hover:bg-opacity-80 transition-colors" title="Add to Cart">
                 <svg class="w-[24px] h-[24px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m1.6 8L6 5H3m4 8a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/>
                 </svg>
             </button>
-            <button class="hover:bg-tertiary text-primary p-2 rounded-full hover:bg-opacity-80 transition-colors" title="View Details">
+            <a [routerLink]="['/shop', product.id]" routerLinkActive="router-link-active" class="hover:bg-tertiary text-primary p-2 rounded-full hover:bg-opacity-80 transition-colors" title="View Details">
                 <svg class="w-[24px] h-[24px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                 </svg>
-            </button>
+            </a>
         </div>
     </div>
     <div class="p-4 text-center flex flex-row gap-3 justify-between ">
-        <h4 class="text-xl text-primary">Product Title</h4>
+        <h4 class="text-xl text-primary truncate">{{ product.title }}</h4>
         <div class="flex flex-row gap-2 items-center">
-            <span class="text-primary">$99.99</span>
-            <span class="text-[12px] text-secondary line-through">$199.99</span>
+            <span class="text-primary">{{ product.price | currency }}</span>
+            <span class="text-[12px] text-secondary line-through">{{ product.price + 10 | currency }}</span>
         </div>
     </div>
 </div>
