@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { selectCartItems, selectCartTotal } from '../../store/cart.selectors';
 import { clearCart, removeItem } from '../../store/cart.actions';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +17,7 @@ import { PageHeaderComponent } from '../shared/page-header/page-header.component
   imports: [
     CartItemComponent,
     CommonModule,
+    RouterModule,
     MatTableModule,
     MatButtonModule,
     MatInputModule,

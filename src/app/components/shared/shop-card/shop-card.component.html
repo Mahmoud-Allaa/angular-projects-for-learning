@@ -13,7 +13,7 @@
         </div>
         
         <div class="flex flex-row gap-4">
-            <button class="secondary-btn">Add to Cart</button>
+            <button (click)="addToCart()" class="secondary-btn">Add to Cart</button>
             <a [routerLink]="'/shop/' + product.id" class="secondary-outlined-btn">View Details</a>
         </div>
     </div>

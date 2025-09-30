@@ -11,3 +11,13 @@ export const removeItem = createAction(
 );
 
 export const clearCart = createAction('[Cart] Clear Cart');
+
+export const increaseQuantity = createAction(
+  '[Cart] Increase Quantity',
+  props<{ productId: number }>()
+);
+
+export const decreaseQuantity = createAction(
+  '[Cart] Decrease Quantity',
+  props<{ productId: number }>()
+);

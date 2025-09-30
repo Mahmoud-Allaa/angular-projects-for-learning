@@ -1,49 +1,56 @@
 <app-page-header
     title="Your Cart" [breadcrumbs]="[{ label: 'Home', url: '/' },{ label: 'Cart' }]"
 ></app-page-header>
-<div class="container mx-auto py-[100px] flex flex-row gap-20">
 
-   <div class="w-[70%]">
-        <div class="grid grid-cols-4 gap-4 mb-10">
-            <div class="text-start"><h3>Product</h3></div>
-            <div class="text-center"><h3>Price</h3></div>
-            <div class="text-center"><h3>Quantity</h3></div>
-            <div class="text-end"><h3>Total</h3></div>
-        </div>
+<ng-container *ngIf="cartItems$ | async as cartItems">
+    <!-- Show cart items when there are items -->
+    <div *ngIf="cartItems.length > 0" class="container mx-auto py-[100px] flex flex-row gap-20">
+        <div class="w-[70%]">
+            <div class="grid grid-cols-4 gap-4 mb-10">
+                <div class="text-start"><h3>Product</h3></div>
+                <div class="text-center"><h3>Price</h3></div>
+                <div class="text-center"><h3>Quantity</h3></div>
+                <div class="text-end"><h3>Total</h3></div>
+            </div>
 
-        <ng-container *ngIf="cartItems$ | async as cartItems">
             <ng-container *ngFor="let item of cartItems">
                 <app-cart-item [product]="item"></app-cart-item>
             </ng-container>
-        </ng-container>
 
-        <!-- Footer Section -->
-        <div class="cart-footer flex justify-between gap-4 mt-10">
-            <button class="secondary-btn">Update Cart</button>
-            <button class="secondary-btn" (click)="clearCart()">Clear Cart</button>
+            <!-- Footer Section -->
+            <div class="cart-footer flex justify-between gap-4 mt-10">
+                <button class="secondary-btn" (click)="clearCart()">Clear Cart</button>
+            </div>
         </div>
-   </div>
-   <div class="w-[30%] px-10">
-        <h3 class="text-center">Cart Totals</h3>
-        <div class="flex flex-col gap-2 justify-between my-5 bg-tertiary-light p-8 rounded">
-            <div class="flex flex-row justify-between border-b pb-2">
-                <span class="text-lg text-primary">Subtotal</span>
-                <span class="text-lg text-primary">$500</span>
+        <div class="w-[30%] px-10">
+            <h3 class="text-center">Cart Totals</h3>
+            <div class="flex flex-col gap-2 justify-between my-5 bg-tertiary-light p-8 rounded">
+                <div class="flex flex-row justify-between border-b pb-2">
+                    <span class="text-lg text-primary">Subtotal</span>
+                    <span class="text-lg text-primary">${{ (cartTotal$ | async) || 0 }}</span>
+                </div>
+                <div class="flex flex-row justify-between border-b pb-2">
+                    <span class="text-lg text-primary">Shipping</span>
+                    <span class="text-lg text-primary">$5.00</span>
+                </div>
+                <div class="flex flex-row justify-between border-b pb-2">
+                    <span class="text-lg text-primary">Total</span>
+                    <span class="text-lg text-primary">${{ ((cartTotal$ | async) || 0) + 5.00 }}</span>
+                </div>
+                <div class="flex flex-row gap-2 items-center mt-5">
+                    <div class="w-2 h-2 bg-primary opacity-70 rounded-full"></div>
+                    <span class="text-[12px] text-gray-600">Shipping & taxes calculated at checkout</span>
+                </div>
+                <button class="primary-btn mt-10">Proceed to Checkout</button>
             </div>
-            <div class="flex flex-row justify-between border-b pb-2">
-                <span class="text-lg text-primary">Shipping</span>
-                <span class="text-lg text-primary">$5.00</span>
-            </div>
-            <div class="flex flex-row justify-between border-b pb-2">
-                <span class="text-lg text-primary">Total</span>
-                <span class="text-lg text-primary">${{ 500 + 5.00 }}</span>
-            </div>
-            <div class="flex flex-row gap-2 items-center mt-5">
-                <div class="w-2 h-2 bg-primary opacity-70 rounded-full"></div>
-                <span class="text-[12px] text-gray-600">Shipping & taxes calculated at checkout</span>
-            </div>
-            <button class="primary-btn mt-10">Proceed to Checkout</button>
         </div>
     </div>
 
-</div>
+    <!-- Show empty cart message when no items -->
+    <div *ngIf="cartItems.length === 0" class="container mx-auto py-[100px] text-center">
+        <img src="/empty.png" alt="empty cart" class="w-[300px] h-[300px] mx-auto">
+        <h2 class="text-primary text-2xl font-bold mb-4">Your Cart is Empty</h2>
+        <p class="text-gray-600 mb-8">Looks like you haven't added any items to your cart yet.</p>
+        <a routerLink="/shop" class="primary-btn">Start Shopping</a>
+    </div>
+</ng-container>
